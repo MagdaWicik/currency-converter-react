@@ -4,6 +4,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+On this website you can convert PLN to EUR and USD based on the exchange rate on March 17, 2023.
+
 ## Available Scripts
 
 In the project directory, you can run:
