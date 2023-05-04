@@ -1,10 +1,20 @@
 # Currency converter
 
+## Demo
+
+https://magdawicik.github.io/currency-converter-react/
+
+## Used features
+
+HTML, CSS, JavaScript (ES6+), React, BEM convention, Git
+
 ## Description
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 On this website you can convert PLN to EUR and USD based on the exchange rate on March 17, 2023.
+
+![gif](./currencyconverterreact.gif)
 
 ## Available Scripts
 
