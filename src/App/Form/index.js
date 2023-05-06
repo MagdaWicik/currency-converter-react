@@ -1,21 +1,48 @@
 import { currencies } from "../currencies";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Result from "./Result";
 import "./style.css";
+import Calendar from "./Calendar";
 
-const Form = ({ calculateResult, result }) => {
+const Form = () => {
   const [currency, setCurrency] = useState(currencies[0].short);
   const [amount, setAmount] = useState("");
+  const [result, setResult] = useState("0");
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDate(new Date())
+    }, 1000);
+
+    return() => {
+      clearInterval(intervalId);
+    };
+  }, [currentDate]);
+
+  const calculateResult = (currency, amount) => {
+    const rate = currencies
+      .find(({ short }) => short === currency)
+      .rate;
+
+    setResult({
+      targetAmount: amount / rate,
+      currency,
+    });
+  };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     calculateResult(currency, amount);
-  }
+  };
 
   return (
     <form onSubmit={onFormSubmit} className="form">
       <fieldset className="form__fieldset">
         <legend className="form__legend">Kalkulator walut</legend>
+        <p className="form__date">
+          Dzisiaj jest <Calendar currentDate={currentDate} />
+        </p>
         <p className="form__paragraph">
           Przelicz według kursu średniego z dnia 17.03.23r.
         </p>
@@ -65,7 +92,7 @@ const Form = ({ calculateResult, result }) => {
           *Pole wymagane
         </p>
       </fieldset>
-    </form >
+    </form>
   )
 };
 
