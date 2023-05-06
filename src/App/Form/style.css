@@ -22,6 +22,13 @@
     text-align: center;
 }
 
+.form__date {
+    font-size: 13px;
+    text-align: end;
+    padding-right: 20px;
+    font-family: 'Source Code Pro', monospace;
+}
+
 .form__label {
     font-size: 20px;
     padding: 10px;
