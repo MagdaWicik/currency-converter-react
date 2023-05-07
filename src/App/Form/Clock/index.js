@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Calendar = () => {
+const Clock = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
 
     useEffect(() => {
@@ -28,4 +28,4 @@ const Calendar = () => {
     )
 };
 
-export default Calendar;
+export default Clock;

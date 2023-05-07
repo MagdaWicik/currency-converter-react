@@ -2,7 +2,7 @@ import { currencies } from "../currencies";
 import { useState } from "react";
 import Result from "./Result";
 import "./style.css";
-import Calendar from "./Calendar";
+import Clock from "./Clock";
 
 const Form = () => {
   const [currency, setCurrency] = useState(currencies[0].short);
@@ -30,7 +30,7 @@ const Form = () => {
       <fieldset className="form__fieldset">
         <legend className="form__legend">Kalkulator walut</legend>
         <p className="form__date">
-          Dzisiaj jest <Calendar />
+          Dzisiaj jest <Clock />
         </p>
         <p className="form__paragraph">
           Przelicz według kursu średniego z dnia 17.03.23r.
