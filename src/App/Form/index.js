@@ -1,5 +1,5 @@
 import { currencies } from "../currencies";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Result from "./Result";
 import "./style.css";
 import Calendar from "./Calendar";
@@ -8,17 +8,6 @@ const Form = () => {
   const [currency, setCurrency] = useState(currencies[0].short);
   const [amount, setAmount] = useState("");
   const [result, setResult] = useState("0");
-  const [currentDate, setCurrentDate] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentDate(new Date())
-    }, 1000);
-
-    return() => {
-      clearInterval(intervalId);
-    };
-  }, [currentDate]);
 
   const calculateResult = (currency, amount) => {
     const rate = currencies
@@ -41,7 +30,7 @@ const Form = () => {
       <fieldset className="form__fieldset">
         <legend className="form__legend">Kalkulator walut</legend>
         <p className="form__date">
-          Dzisiaj jest <Calendar currentDate={currentDate} />
+          Dzisiaj jest <Calendar />
         </p>
         <p className="form__paragraph">
           Przelicz według kursu średniego z dnia 17.03.23r.
