@@ -1,8 +1,8 @@
 import { currencies } from "../currencies";
 import { useState } from "react";
 import Result from "./Result";
-import "./style.css";
 import Clock from "./Clock";
+import { ConverterForm, Fieldset, Legend, Label, Field, Paragraph, Button, ButtonContainer, Inform } from "./styled";
 
 const Form = () => {
   const [currency, setCurrency] = useState(currencies[0].short);
@@ -26,21 +26,18 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={onFormSubmit} className="form">
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Kalkulator walut</legend>
-        <p className="form__date">
-          Dzisiaj jest <Clock />
-        </p>
-        <p className="form__paragraph">
+    <ConverterForm onSubmit={onFormSubmit}>
+      <Fieldset>
+        <Legend>Kalkulator walut</Legend>
+        <Clock />
+        <Paragraph>
           Przelicz według kursu średniego z dnia 17.03.23r.
-        </p>
+        </Paragraph>
         <p>
-          <label className="form__label">
+          <Label>
             *Wpisz kwotę w PLN:
-            <input
+            <Field
               value={amount}
-              className="form__label--input"
               type="number"
               step="0.01"
               min="0.01"
@@ -48,14 +45,13 @@ const Form = () => {
               placeholder="Kwota, którą chcesz wymienić"
               onChange={({ target }) => setAmount(target.value)}
             />
-          </label>
+          </Label>
         </p>
         <p>
-          <label className="form__label">
+          <Label>
             *Wybierz walutę:
-            <select
+            <Field as="select"
               value={currency}
-              className="form__label--select"
               onChange={({ target }) => setCurrency(target.value)}
             >
               {currencies.map((currency => (
@@ -66,22 +62,22 @@ const Form = () => {
                   {currency.name}
                 </option>
               )))}
-            </select>
-          </label>
+            </Field>
+          </Label>
         </p>
-        <div className="form__buttonContainer">
-          <button className="form__button">Przelicz</button>
-        </div>
+        <ButtonContainer>
+          <Button>Przelicz</Button>
+        </ButtonContainer>
         <p>
-          <label className="form__label">
+          <Label>
             Kwota, którą otrzymasz: <Result result={result} />
-          </label>
+          </Label>
         </p>
-        <p className="form__inform">
+        <Inform>
           *Pole wymagane
-        </p>
-      </fieldset>
-    </form>
+        </Inform>
+      </Fieldset>
+    </ConverterForm>
   )
 };
 
