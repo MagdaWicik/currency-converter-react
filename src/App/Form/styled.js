@@ -75,3 +75,14 @@ export const Inform = styled.p`
     padding: 10px;
     font-size: 15px;
 `; 
+
+export const Loading = styled.p`
+    font-size: 20px;
+    text-align: center;
+`;
+
+export const Failure = styled.p`
+    font-size: 20px;
+    text-align: center;
+    color: red;
+`;
