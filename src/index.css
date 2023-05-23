@@ -10,7 +10,7 @@ body {
   max-width: 1000px;
   background-color: rgb(245, 245, 243);
   margin: auto;
-  background-image: url("../backgroundimage2.png");
+  background-image: url("./images/backgroundimage2.png");
   background-size: cover;
   font-family: 'Montserrat', sans-serif;
 }
