@@ -17,6 +17,7 @@ export const Fieldset = styled.fieldset`
     box-shadow: 3px 3px 3px 2px rgb(144, 140, 140);
     border-radius: 5px;
     width: 700px;
+    min-height: 500px;
 `;
 
 export const Legend = styled.legend`
@@ -77,7 +78,7 @@ export const Inform = styled.p`
 `; 
 
 export const Loading = styled.p`
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
 `;
 
