@@ -43,11 +43,9 @@ const Form = () => {
         <Clock />
         {ratesData.status === "loading"
           ? (
-            <>
               <Loading>
                 Trwa pobieranie danych...
               </Loading>
-            </>
           ) : ratesData.status === "error"
             ? (
               <Failure>
